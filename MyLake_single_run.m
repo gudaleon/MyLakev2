@@ -317,66 +317,69 @@ save('IO/MyLakeResults.mat', 'MyLake_results', 'Sediment_results')
 disp('Finished at:')
 disp(datetime('now'));
 
-if is_metrics == true
-
-    load('Postproc_code/Vansjo/VAN1_data_2017_02_28_10_55.mat')
-
-    depths = [5;10;15;20;25;30;35;40];
-    rmsd_O2 = 0;
-
-
-    for i=1:size(depths,1)
-        d = depths(i);
-        zinx=find(MyLake_results.basin1.z == d);
-        O2_measured = res.T(res.depth1 == d);
-        day_measured = res.date(res.depth1 == d);
-        day_measured = day_measured(~isnan(O2_measured));
-        O2_measured = O2_measured(~isnan(O2_measured));
-
-        O2_mod = MyLake_results.basin1.concentrations.O2(zinx,:)'/1000;
-        [T_date,loc_sim, loc_obs] = intersect(MyLake_results.basin1.days, day_measured);
-
-        % rmsd_O2 = rmsd_O2 + RMSE(O2_mod(loc_sim, 1), O2_measured(loc_obs, 1));
-        rmsd_O2 = rmsd_O2 + sqrt(mean((O2_mod(loc_sim, 1)-O2_measured(loc_obs, 1)).^2));
-    end
-
-    zinx=find(MyLake_results.basin1.z<4);
-    TP_mod = mean((MyLake_results.basin1.concentrations.P(zinx,:)+MyLake_results.basin1.concentrations.PP(zinx,:) + MyLake_results.basin1.concentrations.DOP(zinx,:) + MyLake_results.basin1.concentrations.POP(zinx,:))', 2);
-    Chl_mod = mean((MyLake_results.basin1.concentrations.Chl(zinx,:)+MyLake_results.basin1.concentrations.C(zinx,:))', 2);
-    P_mod = mean((MyLake_results.basin1.concentrations.P(zinx,:))', 2);
-    POP_mod = mean((MyLake_results.basin1.concentrations.POP(zinx,:) + MyLake_results.basin1.concentrations.PP(zinx,:))', 2);
-
-    load 'obs/store_obs/TOTP.dat' % measured
-    % load 'obs/store_obs/Cha.dat' % measured
-    load 'obs/store_obs/Cha_aquaM_march_2017.dat' % measured
-    load 'obs/store_obs/PO4.dat' % measured
-    load 'obs/store_obs/Part.dat' % measured
-
-
-    [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, TOTP(:,1)));
-    rmsd_TOTP = sqrt(mean((TP_mod(loc_sim, 1)-TOTP(loc_obs, 2)).^2));
-
-
-    [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, Cha_aquaM_march_2017(:,1)));
-    rmsd_Chl = sqrt(mean((Chl_mod(loc_sim, 1)-Cha_aquaM_march_2017(loc_obs, 2)).^2));
-
-
-    [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, PO4(:,1)));
-    rmsd_PO4 = sqrt(mean((P_mod(loc_sim, 1)-PO4(loc_obs, 2)).^2));
-
-
-    [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, Part(:,1)));
-    rmsd_PP = sqrt(mean((POP_mod(loc_sim, 1)-Part(loc_obs, 2)).^2));
-
-
-    disp('RMSD 3xRMSE(P)+RMSE(O2):')
-    disp(sum([3*rmsd_TOTP, 3*rmsd_Chl, 3*rmsd_PO4, 3*rmsd_PP, rmsd_O2]))
-    disp('RMSD = RMSE(P)+RMSE(O2):')
-    disp(sum([rmsd_TOTP, rmsd_Chl, rmsd_PO4, rmsd_PP, rmsd_O2]))
-end
-
-
-toc
+% KRS commented out 2017-10-03. This is for the Vansjo observations, which
+% do not have the same dimensions as the L227 observations. I will add the
+% L227 observations in later.
+% if is_metrics == true
+% 
+%     load('Postproc_code/Vansjo/VAN1_data_2017_02_28_10_55.mat')
+% 
+%     depths = [5;10;15;20;25;30;35;40];
+%     rmsd_O2 = 0;
+% 
+% 
+%     for i=1:size(depths,1)
+%         d = depths(i);
+%         zinx=find(MyLake_results.basin1.z == d);
+%         O2_measured = res.T(res.depth1 == d);
+%         day_measured = res.date(res.depth1 == d);
+%         day_measured = day_measured(~isnan(O2_measured));
+%         O2_measured = O2_measured(~isnan(O2_measured));
+% 
+%         O2_mod = MyLake_results.basin1.concentrations.O2(zinx,:)'/1000;
+%         [T_date,loc_sim, loc_obs] = intersect(MyLake_results.basin1.days, day_measured);
+% 
+%         % rmsd_O2 = rmsd_O2 + RMSE(O2_mod(loc_sim, 1), O2_measured(loc_obs, 1));
+%         rmsd_O2 = rmsd_O2 + sqrt(mean((O2_mod(loc_sim, 1)-O2_measured(loc_obs, 1)).^2));
+%     end
+% 
+%     zinx=find(MyLake_results.basin1.z<4);
+%     TP_mod = mean((MyLake_results.basin1.concentrations.P(zinx,:)+MyLake_results.basin1.concentrations.PP(zinx,:) + MyLake_results.basin1.concentrations.DOP(zinx,:) + MyLake_results.basin1.concentrations.POP(zinx,:))', 2);
+%     Chl_mod = mean((MyLake_results.basin1.concentrations.Chl(zinx,:)+MyLake_results.basin1.concentrations.C(zinx,:))', 2);
+%     P_mod = mean((MyLake_results.basin1.concentrations.P(zinx,:))', 2);
+%     POP_mod = mean((MyLake_results.basin1.concentrations.POP(zinx,:) + MyLake_results.basin1.concentrations.PP(zinx,:))', 2);
+% 
+%     load 'obs/store_obs/TOTP.dat' % measured
+%     % load 'obs/store_obs/Cha.dat' % measured
+%     load 'obs/store_obs/Cha_aquaM_march_2017.dat' % measured
+%     load 'obs/store_obs/PO4.dat' % measured
+%     load 'obs/store_obs/Part.dat' % measured
+% 
+% 
+%     [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, TOTP(:,1)));
+%     rmsd_TOTP = sqrt(mean((TP_mod(loc_sim, 1)-TOTP(loc_obs, 2)).^2));
+% 
+% 
+%     [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, Cha_aquaM_march_2017(:,1)));
+%     rmsd_Chl = sqrt(mean((Chl_mod(loc_sim, 1)-Cha_aquaM_march_2017(loc_obs, 2)).^2));
+% 
+% 
+%     [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, PO4(:,1)));
+%     rmsd_PO4 = sqrt(mean((P_mod(loc_sim, 1)-PO4(loc_obs, 2)).^2));
+% 
+% 
+%     [TP_date,loc_sim, loc_obs] = (intersect(MyLake_results.basin1.days, Part(:,1)));
+%     rmsd_PP = sqrt(mean((POP_mod(loc_sim, 1)-Part(loc_obs, 2)).^2));
+% 
+% 
+%     disp('RMSD 3xRMSE(P)+RMSE(O2):')
+%     disp(sum([3*rmsd_TOTP, 3*rmsd_Chl, 3*rmsd_PO4, 3*rmsd_PP, rmsd_O2]))
+%     disp('RMSD = RMSE(P)+RMSE(O2):')
+%     disp(sum([rmsd_TOTP, rmsd_Chl, rmsd_PO4, rmsd_PP, rmsd_O2]))
+% end
+% 
+% 
+% toc
 
 
 
