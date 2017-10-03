@@ -60,7 +60,7 @@ initfile='IO/mylake_initial_concentrations.txt';
 
 
 if use_INCA == 0
-    inputfile='IO/store_INCAP_input_baseline_mod.txt';
+    inputfile='IO/L227_input_v2.txt';
     % inputfile='IO/store_constant_input.txt';
     disp('Using existing input')
 elseif use_INCA == 1
