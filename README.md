@@ -1,3 +1,5 @@
-# MyLakev2
+# MyLake_v2_Vansjo
+Updated version of MyLake with sediment module and continuous reaction network applied to lake Vansjø
 
-I am modifying Igor Markelov's MyLake v2 for Lake Vansjo to work for L227. 
+##### Results of the calibrated model:
+![alt text](img/results_uncalibrated.png "Logo Title Text 1")
