@@ -211,8 +211,8 @@ for current_run = 1:no_runs
             m_start=[2000, 1, 1]; %
             m_stop=[2012, 12, 31]; %
         else
-            m_start=[2000, 1, 1]; %
-            m_stop=[2013, 12, 31]; %
+            m_start=[1969, 6, 27]; %
+            m_stop=[2009, 12, 31]; %
         end
 % 
 %     elseif current_run == 2;

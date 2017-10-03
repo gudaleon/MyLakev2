@@ -36,7 +36,7 @@ fclose(fid);
 
 % warning('off', 'all')
 lake='Vansjo';
-year=1983;
+year=1969;
 dt = 1.0;
 
 %% If you want MyLake to read INCA outputs use_INCA
