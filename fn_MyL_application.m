@@ -15,7 +15,7 @@ lake_par_file = tempname;
 dlmwrite(sed_par_file, calibration_k_values,'delimiter','\t');
 
 %% writing lake parameter file
-f = fopen('IO/vansjo_para.txt');
+f = fopen('IO/L227_para_v2.txt');
 garbage = fgetl(f); % file get line
 garbage = fgetl(f); % file get line
 data_lake = textscan(f, '%s%f%f%f%s', length(K_lake), 'Delimiter', '\t');

@@ -61,7 +61,7 @@ lake_params = {
     0.16, 'w_chl_2',           % 56    Settling velocity for Chl a (m day-1)
     0.03, 'm_twty_2',           % 57    Loss rate (1/day) at 20 deg C
     0.6, 'g_twty_2',           % 58    Specific growth rate (1/day) at 20 deg C
-    21, 'P_half_2',           % 59    Half saturation growth P level (mg/m3)
+    0.483, 'P_half_2',           % 59    Half saturation growth P level (mg/m3)
     0.01, 'oc_DOC',            % 60    Optical cross-section of DOC (m2/mg DOC)
     0.1, 'qy_DOC',             % 61    Quantum yield (mg DOC degraded/mol quanta)
     0.1, 'k_BOD',              % 62    NOTE: NOT USED: Organic decomposition rate (1/d)
