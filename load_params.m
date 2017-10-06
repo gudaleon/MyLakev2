@@ -7,7 +7,7 @@ lake_params = {
     NaN, 'Kz_K1',           % 2     open water diffusion parameter (-)%was 0.0164 for Igor's model
     0.000898, 'Kz_K1_ice',     % 3     under ice diffusion parameter (-)
     7E-05, 'Kz_N0',            % 4     min. stability frequency (s-2)
-    0.2, 'C_shelter',         % 5     wind shelter parameter (-)
+    NaN, 'C_shelter',         % 5     wind shelter parameter (-)
     49.661944, 'lat',              % 6     latitude (decimal degrees)
     93.721944, 'lon',              % 7     longitude (decimal degrees)
     0.3, 'alb_melt_ice',       % 8     albedo of melting ice (-)
@@ -58,7 +58,7 @@ lake_params = {
     0.483, 'P_half',             % 53    Half saturation growth P level (mg/m3)
     3.00E-05, 'PAR_sat_2',     % 54    PAR saturation level for phytoplankton growth (mol(quanta) m-2 s-1)
     0.015, 'beta_chl_2',       % 55    Optical cross_section of chlorophyll (m2 mg-1)
-    0.16, 'w_chl_2',           % 56    Settling velocity for Chl a (m day-1)
+    0.1, 'w_chl_2',           % 56    Settling velocity for Chl a (m day-1)
     0.03, 'm_twty_2',           % 57    Loss rate (1/day) at 20 deg C
     0.6, 'g_twty_2',           % 58    Specific growth rate (1/day) at 20 deg C
     0.483, 'P_half_2',           % 59    Half saturation growth P level (mg/m3)

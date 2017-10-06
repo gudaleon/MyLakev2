@@ -35,7 +35,7 @@ fclose(fid);
 %% Specific MyLake application
 
 % warning('off', 'all')
-lake='Vansjo';
+lake='L227';
 year=1969;
 dt = 1.0;
 
@@ -53,15 +53,15 @@ end
 % vanem_INCAP_input
 
 
-%# ############ This is Vansjø Storefj ##############
+%# ############ This is L227 ##############
 
 parafile=lake_par_file;
 initfile='IO/L227_initial.txt';
 
 
 if use_INCA == 0
-    inputfile='IO/L227_input_v2_constantfertilization.txt';
-    % inputfile='IO/store_constant_input.txt';
+    inputfile='IO/L227_input_v2.txt';
+    % inputfile='IO/L227_input_v2_constantfertilization.txt';
     disp('Using existing input')
 elseif use_INCA == 1
     inputfile = store_INCAP_input; % setting use_INCA to 2 will look for store_INCAP_input
@@ -75,7 +75,7 @@ end
 
 Deposition = 0;
 
-disp('Storefjorden ...')
+disp('L227')
 
 [MyLake_results_basin1, sediment_results_basin1] ...
     = solvemodel_v2(m_start,m_stop,initfile,'lake',inputfile,'timeseries', parafile,'lake');

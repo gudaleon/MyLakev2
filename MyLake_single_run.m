@@ -1,6 +1,6 @@
-clear all;
-path(path,'/Users/krsalkgu/Documents/MATLAB/MyLake_v2_Vansjo-master/MyLake') %path for MyLake model code and air-sea toolbox
-path(path,'/Users/krsalkgu/Documents/MATLAB/MyLake_v2_Vansjo-master/Sediments') %path for sediments
+% clear all;
+% path(path,'/Users/krsalkgu/Documents/MATLAB/MyLake_v2_Vansjo-master/MyLake') %path for MyLake model code and air-sea toolbox
+% path(path,'/Users/krsalkgu/Documents/MATLAB/MyLake_v2_Vansjo-master/Sediments') %path for sediments
 
 %  m_start=[2000, 1, 1]; %
 %  m_stop=[2012, 12, 31]; %
@@ -211,8 +211,8 @@ for current_run = 1:no_runs
             m_start=[2000, 1, 1]; %
             m_stop=[2012, 12, 31]; %
         else
-            m_start=[1969, 6, 27]; %
-            m_stop=[2009, 12, 31]; %
+            m_start=[1980, 1, 1]; %
+            m_stop=[1989, 12, 31]; %
         end
 % 
 %     elseif current_run == 2;
