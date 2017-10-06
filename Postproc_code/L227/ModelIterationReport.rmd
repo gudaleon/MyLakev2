@@ -210,7 +210,6 @@ p7 <- ggplot(mod2.match, aes(x = date)) +
                       breaks = c("1m", "4m", "9m"),
                       values = c("#6baed6", "#3182bd", "#08519c")) +
   theme(legend.position = c(0.9,0.9))
-#[471:610,]
 
 require(gridExtra)
 grid.arrange(p, p2, p3, ncol = 1)
@@ -286,23 +285,26 @@ library(gridExtra)
 grid.arrange(p, p2, p3, ncol = 2)
 
 
-tempregression <- lm(mod.match.temp$obs.Temp1m[1:138] ~ mod.match.temp$mod.Temp1m[1:138])
+tempregression <- lm(mod2.match$obs.Temp1m ~ mod2.match$mod.Temp1m)
 summary(tempregression)
 mse <- mean(residuals(tempregression)^2)
 rmse <- sqrt(mse)
 rmse
+#[1:138]
 
-tempregression <- lm(mod.match.temp$obs.Temp4m[1:138] ~ mod.match.temp$mod.Temp4m[1:138])
+tempregression <- lm(mod2.match$obs.Temp4m ~ mod2.match$mod.Temp4m)
 summary(tempregression)
 mse <- mean(residuals(tempregression)^2)
 rmse <- sqrt(mse)
 rmse
+#[1:138]
 
-tempregression <- lm(mod.match.temp$obs.Temp9m[1:138] ~ mod.match.temp$mod.Temp9m[1:138])
+tempregression <- lm(mod2.match$obs.Temp9m ~ mod2.match$mod.Temp9m)
 summary(tempregression)
 mse <- mean(residuals(tempregression)^2)
 rmse <- sqrt(mse)
 rmse
+#[1:138]
 
 tempregression <- lm(mod.match.temp$obs.Temp1m[139:340] ~ mod.match.temp$mod.Temp1m[139:340])
 summary(tempregression)

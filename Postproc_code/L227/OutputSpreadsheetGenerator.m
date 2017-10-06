@@ -3,15 +3,15 @@ datechar=datestr(MyLake_results.basin1.days);
 dates=datevec(datechar);
 
 Totalchl = MyLake_results.basin1.concentrations.Chl + MyLake_results.basin1.concentrations.C;
-Chlintegratedepi = transpose(mean(Totalchl(1:4,1:14798)));
+Chlintegratedepi = transpose(mean(Totalchl(1:4,1:3653)));
 cyano = rdivide(MyLake_results.basin1.concentrations.C,Totalchl);
-cyanointegratedepi = transpose(mean(cyano(1:4,1:14798)));
+cyanointegratedepi = transpose(mean(cyano(1:4,1:3653)));
 
 TDP = MyLake_results.basin1.concentrations.P + MyLake_results.basin1.concentrations.DOP;
-TDPintegratedepi = transpose(mean(TDP(1:4,1:14798)));
+TDPintegratedepi = transpose(mean(TDP(1:4,1:3653)));
 
 TP = Totalchl + TDP + MyLake_results.basin1.concentrations.PP;
-TPintegratedepi = transpose(mean(TP(1:4,1:14798)));
+TPintegratedepi = transpose(mean(TP(1:4,1:3653)));
 
 filename='Postproc_code/L227/Output_IntegratedEpi.csv';
 M = [dates(:,1:3), Chlintegratedepi, cyanointegratedepi, TDPintegratedepi, TPintegratedepi];
